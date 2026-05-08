@@ -1,0 +1,49 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Public and private user information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string", "enum": ["farmer", "admin"] },
+        "fcmTokens": { "type": "array", "items": { "type": "string" } },
+        "notificationPrefs": {
+          "type": "object",
+          "properties": {
+            "push": { "type": "boolean" },
+            "email": { "type": "boolean" },
+            "sms": { "type": "boolean" }
+          }
+        },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "SensorData": {
+      "title": "Sensor Reading",
+      "description": "IOT sensor data point",
+      "type": "object",
+      "properties": {
+        "sensorType": { "type": "string" },
+        "value": { "type": "number" },
+        "unit": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["sensorType", "value", "unit", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "/sensor_data/{readingId}": {
+      "schema": "SensorData",
+      "description": "Historical sensor readings"
+    }
+  }
+}

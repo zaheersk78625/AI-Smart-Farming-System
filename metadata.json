@@ -1,0 +1,14 @@
+{
+  "name": "AgroSmart AI",
+  "description": "Advanced AI-powered smart farming system with real-time IoT monitoring, crop prediction, disease detection, and expert assistant.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "AI-powered Crop Prediction",
+    "Real-time IoT Sensor Dashboard",
+    "Computer Vision Disease Detection",
+    "AI Farmer Assistant Chatbot"
+  ]
+}
